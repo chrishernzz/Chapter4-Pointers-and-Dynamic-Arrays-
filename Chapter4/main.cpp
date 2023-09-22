@@ -1,3 +1,7 @@
+//Christian Hernandez
+//
+//
+
 #include<iostream>
 #include"input (1).h"
 #include"Complex.h"
@@ -53,7 +57,7 @@ void challenge1()
 	Complex numbers;
 
 	do {
-	    beginning:
+	beginning:
 		cout << "\t\tA complex number is a number that can be expressed in the form a + b i, where a and b are real\n"
 			"\t\tnumbers, and i represents the " << "'imaginary uni'," << " satisfying the equation i ^ 2 = -1. Because no\n"
 			"\t\ttreal number satisfies this equation, i is called an imaginary number.For the complex number\n"
@@ -119,13 +123,13 @@ void challenge1()
 				case 5: {
 					double number2 = inputDouble("\n\t\t\tEnter a value (double): ");
 					cout << "\n\t\t\tC2 + value";
-					if (numbers.getImaginaryNumber()<0) {
-						cout << "\n\t\t\t(" << numbers.getRealNumber() << " + " << numbers.getImaginaryNumber() << "i) + " << number2 << " = " << numbers + number2 << " - "<<-(numbers.getImaginaryNumber())<<"i";
+					if (numbers.getImaginaryNumber() < 0) {
+						cout << "\n\t\t\t(" << numbers.getRealNumber() << " + " << numbers.getImaginaryNumber() << "i) + " << number2 << " = " << numbers + number2 << " - " << -(numbers.getImaginaryNumber()) << "i";
 						cout << "\n\n\t\t\tvalue + C2";
-						cout << "\n\t\t\t"<< number2<<" + (" << numbers.getRealNumber() << " + " << numbers.getImaginaryNumber() << "i)" << " = " << numbers + number2 << " - " << -(numbers.getImaginaryNumber()) << "i";
+						cout << "\n\t\t\t" << number2 << " + (" << numbers.getRealNumber() << " + " << numbers.getImaginaryNumber() << "i)" << " = " << numbers + number2 << " - " << -(numbers.getImaginaryNumber()) << "i";
 					}
 					else {
-						cout << "\n\t\t\t(" << numbers.getRealNumber() << " + " << numbers.getImaginaryNumber() << "i) + " << number2 << " = " << numbers + number2 << " + " << numbers.getImaginaryNumber()<<"i";
+						cout << "\n\t\t\t(" << numbers.getRealNumber() << " + " << numbers.getImaginaryNumber() << "i) + " << number2 << " = " << numbers + number2 << " + " << numbers.getImaginaryNumber() << "i";
 						cout << "\n\n\t\t\tvalue + C2";
 						cout << "\n\t\t\t" << number2 << " + (" << numbers.getRealNumber() << " + " << numbers.getImaginaryNumber() << "i)" << " = " << numbers + number2 << " + " << numbers.getImaginaryNumber() << "i";
 					}
@@ -156,7 +160,7 @@ void challenge1()
 					double number2 = inputDouble("\n\t\t\tEnter a value (double): ");
 					cout << "\n\t\t\tC2 * value";
 					if (numbers.getImaginaryNumber() < 0) {
-						cout << "\n\t\t\t(" << numbers.getRealNumber() << " * " << numbers.getImaginaryNumber() << "i) * " << number2 << " = " << numbers * number2 << " + "<< - (numbers.getImaginaryNumber() * -number2) << "i";
+						cout << "\n\t\t\t(" << numbers.getRealNumber() << " * " << numbers.getImaginaryNumber() << "i) * " << number2 << " = " << numbers * number2 << " + " << -(numbers.getImaginaryNumber() * -number2) << "i";
 						cout << "\n\n\t\t\tvalue * C2";
 						cout << "\n\t\t\t" << number2 << " * (" << numbers.getRealNumber() << " + " << numbers.getImaginaryNumber() << "i)" << " = " << numbers * number2 << " + " << -(numbers.getImaginaryNumber() * -number2) << "i";
 					}
