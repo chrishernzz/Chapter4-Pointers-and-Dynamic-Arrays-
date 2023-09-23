@@ -4,8 +4,13 @@
 #include<string>
 using namespace std;
 
-//precondition:
-//postcondition:
+//input (1) header files inputs
+char inputChar(string prompt, string lookup);
+int inputInteger(string prompt, int start, bool greater);
+double inputDouble(string prompt);
+
+//precondition: going to create a class that has 2 pointers
+//postcondition: going to then return the realNumber and imaginaryNumber, allocate and deallocate memory as well
 class Complex{
 private: 
 	double *realNumber, *imaginaryNumber;
@@ -24,15 +29,25 @@ public:
 
 	//member function that is going to get the display information (formula for formula compelx)
 	void getFormulaInformation();
-
 	//member function that gets me the negated formula answer
 	void getNegatedComplexNumber() const;
 
+	//member function that has my information
+	void displayInformation();
 
 	//overloading operators  +, -, *, /
 	friend double operator+(const Complex& obj1, double value);
 	friend double operator-(const Complex& obj1, double value);
 	friend double operator*(const Complex& obj1, double value);
 	friend double  operator/(const Complex& obj1, double value);
+
+	//overloading operators for 2 objects and overloading operators  ==,!=,+,-,*,/
+	friend bool operator==(const Complex& obj1, const Complex& obj2);
+	friend bool operator!=(const Complex& obj1, const Complex& obj2);
+	friend string operator+(const Complex& obj1, const Complex& obj2);
+	friend string operator-(const Complex& obj1, const Complex& obj2);
+	friend string operator*(const Complex& obj1, const Complex& obj2);
+	friend string operator/(const Complex& obj1, const Complex& obj2);
+	
 };
 
