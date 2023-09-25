@@ -3,13 +3,8 @@
 #include<string>
 using namespace std;
 
-//input (1) header files inputs validation
-char inputChar(string prompt, string lookup);
-int inputInteger(string prompt, int startRange, int endRange);
-double inputDouble(string prompt);
-
-//precondition: going to create a class that has 2 pointers
-//postcondition: going to then return the realNumber and imaginaryNumber, allocate and deallocate memory as well
+//precondition:
+//postcondition:
 class Complex{
 private: 
 	double *realNumber, *imaginaryNumber;
