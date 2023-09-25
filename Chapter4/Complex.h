@@ -3,6 +3,11 @@
 #include<string>
 using namespace std;
 
+//input (1) header files inputs validation
+char inputChar(string prompt, string lookup);
+int inputInteger(string prompt, int startRange, int endRange);
+double inputDouble(string prompt);
+
 //precondition:
 //postcondition:
 class Complex{
@@ -33,7 +38,7 @@ public:
 	friend double operator+(const Complex& obj1, double value);
 	friend double operator-(const Complex& obj1, double value);
 	friend double operator*(const Complex& obj1, double value);
-	friend double  operator/(const Complex& obj1, double value);
+	friend double operator/(const Complex& obj1, double value);
 
 	//overloading operators for 2 objects and overloading operators  ==,!=,+,-,*,/
 	friend bool operator==(const Complex& obj1, const Complex& obj2);
