@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include<vector>
 #include <string>
 #include<iomanip>
 #include <cmath>
@@ -12,49 +13,27 @@ int inputInteger(string prompt, int startRange, int endRange);
 double inputDouble(string prompt);
 
 //precondition: going to creat a class that gets me the coefficients 
-//postcondition: going to be using a pointer, then allocate and deallocate so memory does not leak
-class Polynomial{
+//postcondition: going to be using a vector to keep track of the coefficients
+class Polynomial {
 private:
-	double* coefficients;
-	int termSize;
+    vector<double> coefficients;
+    bool termsEntered = false;
+    bool coefficientsSpecified = false;
 
 public:
-	//defualt constructor
-	Polynomial();
-	//constructor
-	Polynomial(double* coeff, int size);
-	//deconstructor
-	~Polynomial();
-	
-	//getters(accesors)
-	double getCoefficients(double* coeff, int theTermSize) const;
-	//setters(mutators
-	void setCoefficients(double* coeff, int theTermSize);
-	
-	//member function to display the information
-	void display() const;
+    //defualt constructor
+    Polynomial();
+    void enterTerms();
+    void specifyCoefficients();
+    double evaluateExpression(double x);
+    Polynomial derivative();
+    Polynomial integral();
+    void printPolynomial(const Polynomial& poly);
+    //member function that has the main menu
+    void main();
 
-	//member function that gets me the total coeffiecnts and then adds them
-	void displayP1X() const;
-	//member function that returns the evaluate of the plolynomial
-	double getEvaluatePolyNomial(double *coeff, int theTermSize, double value) const;
-
-	//member function that gets me the polynomial derivative 
-	void displayPolynomialDerivative() const;
-	//member function that gets me the integral 
-	void displayPolynomialIntegral() const;
-
-	//member function to display the first polynomial
-	void displayFirstPolynomial() const;
-	//member function to display the second polynomial
-	void displaySecondPolynomial() const;
-
-	//overloading operators +,-,*
-	friend double operator+(const Polynomial& obj1, const Polynomial& obj2);
-	friend double operator-(const Polynomial& obj1, const Polynomial& obj2);
-
-
-	//member function that gets all the information and menus 
-	void displayInformationMenu();
+    Polynomial add(const Polynomial& p) const;
+    Polynomial subtract(const Polynomial& p) const;
+    Polynomial multiply(const Polynomial& p) const;
+    Polynomial scalarMultiply(double scalar) const;
 };
-

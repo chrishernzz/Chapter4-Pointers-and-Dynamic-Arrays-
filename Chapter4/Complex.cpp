@@ -3,6 +3,12 @@
 //precondition: going to call my defaults constructor
 //postcondition: going to set the variables to 0.0 since they are doubles (initialize them), allocating new memory
 Complex::Complex() : realNumber(new double(0.0)), imaginaryNumber(new double(0.0)) {}
+//precondition: going to call my constructor
+//postcondition: going to be allocating new to the a and b with realNumber and imaginaryNumber
+Complex::Complex(double a, double b){
+	realNumber = new double(a);
+	imaginaryNumber = new double(b);
+}
 
 //precondition: going to call my deconstructor
 //postcondition: going to then deallocate the memory for realNumber and imaginaryNumber
@@ -521,6 +527,22 @@ void Complex::displayInformation() {
 							}
 						}
 					}
+					else if (multC1.getImaginaryNumber() != 0 && multC2.getImaginaryNumber() != 0 && multC1.getRealNumber() == 0 && multC2.getRealNumber() == 0) {
+						cout << "\n\t\t\tC1 == C2 -> (" << multC1.getImaginaryNumber() << "i) == (" << multC2.getImaginaryNumber() << "i) ? ";
+						if (multC1 == multC2) {
+							cout << "true";
+						}
+						else {
+							cout << "false";
+						}
+						cout << "\n\t\t\tC2 != C1 -> (" << multC2.getImaginaryNumber() << "i) != (" << multC1.getImaginaryNumber() << "i) ? ";
+						if (multC2 != multC1) {
+							cout << "true";
+						}
+						else {
+							cout << "false";
+						}
+					}
 					else if (multC1.getRealNumber() != 0 && multC1.getImaginaryNumber() != 0 && multC2.getRealNumber() == 0 && multC2.getImaginaryNumber() != 0) {
 						if (multC1.getImaginaryNumber() < 0) {
 							cout << "\n\t\t\tC1 == C2 -> (" << multC1.getRealNumber() << " - " << abs(multC1.getImaginaryNumber()) << "i) == (" << multC2.getImaginaryNumber() << "i) ? ";
@@ -791,21 +813,102 @@ void Complex::displayInformation() {
 							}
 						}
 					}
+					else {
+						if (multC1.getImaginaryNumber() < 0) {
+							cout << "\n\t\t\tC1 == C2 -> (" << multC1.getRealNumber() << " - " << abs(multC1.getImaginaryNumber()) << "i) == (" << multC2.getRealNumber() << " + " << multC2.getImaginaryNumber() << "i) ? ";
+							if (multC1 == multC2) {
+								cout << "true";
+							}
+							else {
+								cout << "false";
+							}
+							cout << "\n\t\t\tC2 != C1 -> (" << multC2.getRealNumber() << " + " << multC2.getImaginaryNumber() << "i) != (" << multC1.getRealNumber() << " - " << abs(multC1.getImaginaryNumber()) << "i) ? ";
+							if (multC2 != multC1) {
+								cout << "true";
+							}
+							else {
+								cout << "false";
+							}
+						}
+						else if (multC2.getImaginaryNumber() < 0) {
+							cout << "\n\t\t\tC1 == C2 -> (" << multC1.getRealNumber() << " + " << multC1.getImaginaryNumber() << "i) == (" << multC2.getRealNumber() << " - " << abs(multC2.getImaginaryNumber()) << "i) ? ";
+							if (multC1 == multC2) {
+								cout << "true";
+							}
+							else {
+								cout << "false";
+							}
+							cout << "\n\t\t\tC2 != C1 -> (" << multC2.getRealNumber() << " - " << abs(multC2.getImaginaryNumber()) << "i) != (" << multC1.getRealNumber() << " + " << multC1.getImaginaryNumber() << "i) ? ";
+							if (multC2 != multC1) {
+								cout << "true";
+							}
+							else {
+								cout << "false";
+							}
+						}
+						else if (multC1.getImaginaryNumber() < 0 && multC2.getImaginaryNumber() < 0) {
+							cout << "\n\t\t\tC1 == C2 -> (" << multC1.getRealNumber() << " - " << abs(multC1.getImaginaryNumber()) << "i) == (" << multC2.getRealNumber() << " - " << abs(multC2.getImaginaryNumber()) << "i) ? ";
+							if (multC1 == multC2) {
+								cout << "true";
+							}
+							else {
+								cout << "false";
+							}
+							cout << "\n\t\t\tC2 != C1 -> (" << multC2.getRealNumber() << " - " << abs(multC2.getImaginaryNumber()) << "i) != (" << multC1.getRealNumber() << " - " << abs(multC1.getImaginaryNumber()) << "i) ? ";
+							if (multC2 != multC1) {
+								cout << "true";
+							}
+							else {
+								cout << "false";
+							}
+						}
+						else {
+							cout << "\n\t\t\tC1 == C1 -> (" << multC1.getRealNumber() << " + " << multC1.getImaginaryNumber() << "i) == (" << multC2.getRealNumber() << " + " << multC2.getImaginaryNumber() << "i) ? ";
+							if (multC1 == multC2) {
+								cout << "true";
+							}
+							else {
+								cout << "false";
+							}
+							cout << "\n\t\t\tC2 != C1 -> (" << multC2.getRealNumber() << " + " << abs((multC2.getImaginaryNumber())) << "i) != (" << multC1.getRealNumber() << " + " << multC1.getImaginaryNumber() << "i) ? ";
+							if (multC2 != multC1) {
+								cout << "true";
+							}
+							else {
+								cout << "false";
+							}
+						}
+					}
 					cout << "\n\n";
 					system("pause");
 					system("cls");
 				}
 					  break;
 				case 4: {
+					//overloading  operator
+					multC1 + multC2;
+					multC1 - multC2;
+					multC1 * multC2;
+					multC1 / multC2;
 
+					cout << "\n\n";
+					system("pause");
+					system("cls");
 				}
 					  break;
 				case 5: {
-
+					evaluteSteps(multC1, multC2);
+					cout << "\n\n";
+					system("pause");
+					system("cls");
 				}
 					  break;
 				case 0: {
 					//delete memory so it does not leak
+					multC1.setRealNumber(0.0);
+					multC1.setImaginaryNumber(0.0);
+					multC2.setRealNumber(0.0);
+					multC2.setImaginaryNumber(0.0);
 					cout << endl;
 					system("pause");
 					system("cls");
@@ -820,6 +923,259 @@ void Complex::displayInformation() {
 		}
 		} 
 	}while (true);
+}
+//preconditon: going to pass in two objects 
+//postcondition: 
+void Complex::evaluteSteps(Complex& c1, Complex& c2){
+	Complex c3(1.07109, 0.120832);
+	Complex c4;
+	Complex c5;
+	Complex c6;
+	Complex c7;
+	Complex c8;
+	Complex c9;
+
+	//c4 = 
+	    c1 + c2;
+	//c5 = 
+		c1 / 9;
+
+	//c6 =
+		c4 * 3;
+	//c7 =
+		c6 / 7;
+
+	//c8 =
+		c2 - c5;
+
+	//c9 = 
+		c7 / c8;
+
+	if (c1.getRealNumber() == 0 && c1.getImaginaryNumber() == 0)
+	{
+		cout << "\n\t\t\tC1 = 0\n";
+	}
+	else if (c1.getRealNumber() == 0)
+	{
+		cout << "\n\t\t\tC1 = " << c1.getImaginaryNumber() << "i" << endl;
+	}
+	else if (c1.getImaginaryNumber() == 0)
+	{
+		cout << "\n\t\t\tC1 = " << c1.getRealNumber() << endl;
+	}
+	else if (c1.getImaginaryNumber() < 0)
+	{
+		cout << "\n\t\t\tC1 = " << c1.getRealNumber() << " - " << -(c1.getImaginaryNumber()) << "i" << endl;
+	}
+	else
+	{
+		cout << "\n\t\t\tC1 = " << c1.getRealNumber() << " + " << c1.getImaginaryNumber() << "i" << endl;
+	}
+
+	if (c2.getRealNumber() == 0 && c2.getImaginaryNumber() == 0)
+	{
+		cout << "\t\t\tC1 = 0\n\n";
+	}
+	else if (c2.getRealNumber() == 0)
+	{
+		cout << "\t\t\tC1 = " << c2.getImaginaryNumber() << "i" << endl;
+	}
+	else if (c2.getImaginaryNumber() == 0)
+	{
+		cout << "\t\t\tC1 = " << c2.getRealNumber() << endl;
+	}
+	else if (c2.getImaginaryNumber() < 0)
+	{
+		cout << "\t\t\tC2 = " << c2.getRealNumber() << " - " << -(c2.getImaginaryNumber()) << "i" << endl;
+	}
+	else
+	{
+		cout << "\t\t\tC2 = " << c2.getRealNumber() << " + " << c2.getImaginaryNumber() << "i" << endl;
+	}
+
+	if (c3.getRealNumber() == 0 && c3.getImaginaryNumber() == 0)
+	{
+		cout << "\t\t\tC3 = 0\n\n";
+	}
+	else if (c3.getRealNumber() == 0)
+	{
+		cout << "\t\t\tC3 = " << c3.getImaginaryNumber() << "i" << endl << endl;
+	}
+	else if (c3.getImaginaryNumber() == 0)
+	{
+		cout << "\t\t\tC3 = " << c3.getRealNumber() << endl << endl;
+	}
+	else if (c3.getImaginaryNumber() < 0)
+	{
+		cout << "\t\t\tC3 = " << c3.getRealNumber() << " - " << -(c3.getImaginaryNumber()) << "i" << endl << endl;
+	}
+	else
+	{
+		cout << "\t\t\tC3 = " << c3.getRealNumber() << " + " << c3.getImaginaryNumber() << "i" << endl << endl;
+	}
+
+	cout << "\t\t\tEvaluating expression...\n";
+	cout << "\t\t\t\t (3 * (C1 + C2) / 7) / (C2 - C1 / 9) != (1.07109 + 0.120832i) ? \n";
+	cout << "\t\t\tstep #1: (3 * (";
+
+	if (c4.getRealNumber() == 0 && c4.getImaginaryNumber() == 0){
+		cout << c4.getRealNumber();
+	}
+	else if (c4.getRealNumber() == 0){
+		cout << c4.getImaginaryNumber() << "i";
+	}
+	else if (c4.getImaginaryNumber() == 0){
+		cout << c4.getRealNumber();
+	}
+	else if (c4.getImaginaryNumber() < 0){
+		cout << c4.getRealNumber() << " - " << -(c4.getImaginaryNumber()) << "i";
+	}
+	else{
+		cout << c4.getRealNumber() << " + " << c4.getImaginaryNumber() << "i";
+	}
+
+	cout << ") / 7) / ((";
+
+	if (c2.getRealNumber() == 0 && c2.getImaginaryNumber() == 0){
+		cout << c2.getRealNumber();
+	}
+	else if (c2.getRealNumber() == 0){
+		cout << c2.getImaginaryNumber() << "i";
+	}
+	else if (c2.getImaginaryNumber() == 0){
+		cout << c2.getRealNumber();
+	}
+	else if (c2.getImaginaryNumber() < 0){
+		cout << c2.getRealNumber() << " - " << -(c2.getImaginaryNumber()) << "i";
+	}
+	else{
+		cout << c2.getRealNumber() << " + " << c2.getImaginaryNumber() << "i";
+	}
+
+	cout << ") - (";
+
+	if (c5.getRealNumber() == 0 && c5.getImaginaryNumber() == 0){
+		cout << c5.getRealNumber();
+	}
+	else if (c5.getRealNumber() == 0){
+		cout << c5.getImaginaryNumber() << "i";
+	}
+	else if (c5.getImaginaryNumber() == 0){
+		cout << c5.getRealNumber();
+	}
+	else if (c5.getImaginaryNumber() < 0){
+		cout << c5.getRealNumber() << " - " << -(c5.getImaginaryNumber()) << "i";
+	}
+	else{
+		cout << c5.getRealNumber() << " + " << c5.getImaginaryNumber() << "i";
+	}
+
+	cout << ")) != (1.07109 + 0.120832i)\n";
+
+	cout << "\t\t\tstep #2: ((";
+
+	if (c6.getRealNumber() == 0 && c6.getImaginaryNumber() == 0){
+		cout << c6.getRealNumber();
+	}
+	else if (c6.getRealNumber() == 0){
+		cout << c6.getImaginaryNumber() << "i";
+	}
+	else if (c6.getImaginaryNumber() == 0){
+		cout << c6.getRealNumber();
+	}
+	else if (c6.getImaginaryNumber() < 0){
+		cout << c6.getRealNumber() << " - " << -(c6.getImaginaryNumber()) << "i";
+	}
+	else{
+		cout << c6.getRealNumber() << " + " << c6.getImaginaryNumber() << "i";
+	}
+
+	cout << ") / 7) / (";
+
+	if (c8.getRealNumber() == 0 && c8.getImaginaryNumber() == 0){
+		cout << c8.getRealNumber();
+	}
+	else if (c8.getRealNumber() == 0){
+		cout << c8.getImaginaryNumber() << "i";
+	}
+	else if (c8.getImaginaryNumber() == 0){
+		cout << c8.getRealNumber();
+	}
+	else if (c8.getImaginaryNumber() < 0){
+		cout << c8.getRealNumber() << " - " << -(c8.getImaginaryNumber()) << "i";
+	}
+	else{
+		cout << c8.getRealNumber() << " + " << c8.getImaginaryNumber() << "i";
+	}
+
+	cout << ") != (1.07109 + 0.120832i)\n";
+
+	cout << "\t\t\tstep #3: (";
+
+	if (c7.getRealNumber() == 0 && c7.getImaginaryNumber() == 0){
+		cout << c7.getRealNumber();
+	}
+	else if (c7.getRealNumber() == 0){
+		cout << c7.getImaginaryNumber() << "i";
+	}
+	else if (c7.getImaginaryNumber() == 0){
+		cout << c7.getRealNumber();
+	}
+	else if (c7.getImaginaryNumber() < 0){
+		cout << c7.getRealNumber() << " - " << -(c7.getImaginaryNumber()) << "i";
+	}
+	else{
+		cout << c7.getRealNumber() << " + " << c7.getImaginaryNumber() << "i";
+	}
+
+	cout << ") / (";
+
+	if (c8.getRealNumber() == 0 && c8.getImaginaryNumber() == 0){
+		cout << c8.getRealNumber();
+	}
+	else if (c8.getRealNumber() == 0){
+		cout << c8.getImaginaryNumber() << "i";
+	}
+	else if (c8.getImaginaryNumber() == 0){
+		cout << c8.getRealNumber();
+	}
+	else if (c8.getImaginaryNumber() < 0){
+		cout << c8.getRealNumber() << " - " << -(c8.getImaginaryNumber()) << "i";
+	}
+	else{
+		cout << c8.getRealNumber() << " + " << c8.getImaginaryNumber() << "i";
+	}
+
+	cout << ") != (1.07109 + 0.120832i)\n";
+
+	cout << "\t\t\tstep #4: (";
+
+	if (c9.getRealNumber() == 0 && c9.getImaginaryNumber() == 0){
+		cout << c9.getRealNumber();
+	}
+	else if (c9.getRealNumber() == 0){
+		cout << c9.getImaginaryNumber() << "i";
+	}
+	else if (c9.getImaginaryNumber() == 0){
+		cout << c9.getRealNumber();
+	}
+	else if (c9.getImaginaryNumber() < 0){
+		cout << c9.getRealNumber() << " - " << -(c9.getImaginaryNumber()) << "i";
+	}
+	else{
+		cout << c9.getRealNumber() << " + " << c9.getImaginaryNumber() << "i";
+	}
+
+	cout << ") != (1.07109 + 0.120832i) ?\n";
+
+	cout << "\t\t\tstep #5: ";
+
+	if (c9 != c3){
+		cout << "true\n\n";
+	}
+	else{
+		cout << "false\n\n";
+	}
 }
 
 //precondition: going to pass in an obj1 and the second argu to get the number to add
@@ -842,11 +1198,204 @@ double operator*(const Complex& obj1, double value) {
 double operator/(const Complex& obj1, double value) {
 	return obj1.getRealNumber() / value;
 }
-
+//precondition: going to pass in two objects and check if they are equal
+//postcondition: going to check the obj1 and obj2 real nubmber if they are equal and same thing for the imaginary number
 bool operator==(const Complex& obj1, const Complex& obj2){
 	return (obj1.getRealNumber() == obj2.getRealNumber()) && (obj1.getImaginaryNumber() == obj2.getImaginaryNumber());
 }
-
+//precondition: going to pass in two objects and check if they are NOT equal
+//postcondition: going to check the obj1 and obj2 real nubmber if they are NOT equal and same thing for the imaginary number
 bool operator!=(const Complex& obj1, const Complex& obj2){
 	return (obj1.getRealNumber() != obj2.getRealNumber()) && (obj1.getImaginaryNumber() != obj2.getImaginaryNumber());
 }
+//precondition: going to pass in two objects
+//postcondition: going to then return the addition of the first obj1 real number + obj2 real number then same thing for imaginary number
+void operator+(const Complex& obj1, const Complex& obj2) {
+	if (obj1.getRealNumber() == 0 && obj1.getImaginaryNumber() == 0) {
+		cout << "\n\t\t\tAddition       : C1 + C2 -> (" << obj1.getRealNumber() << ")";
+	}
+	else if (obj1.getRealNumber() == 0) {
+		cout << "\n\t\t\tAddition       : C1 + C2 -> (" << obj1.getImaginaryNumber() << "i)";
+	}
+	else if (obj1.getImaginaryNumber() == 0) {
+		cout << "\n\t\t\tAddition       : C1 + C2 -> (" << obj1.getRealNumber() << ")";
+	}
+	else if (obj1.getImaginaryNumber() < 0) {
+		cout << "\n\t\t\tAddition       : C1 + C2 -> (" << obj1.getRealNumber() << " - " << -(obj1.getImaginaryNumber()) << "i)";
+	}
+	else {
+		cout << "\n\t\t\tAddition       : C1 + C2 -> (" << obj1.getRealNumber() << " + " << obj1.getImaginaryNumber() << "i)";
+	}
+	cout << " + ";
+	if (obj2.getRealNumber() == 0 && obj2.getImaginaryNumber() == 0) {
+		cout << "(" << obj2.getRealNumber() << ") = ";
+	}
+	else if (obj2.getRealNumber() == 0) {
+		cout << "(" << obj2.getImaginaryNumber() << "i) = ";
+	}
+	else if (obj2.getImaginaryNumber() == 0) {
+		cout << "(" << obj2.getRealNumber() << ") = ";
+	}
+	else if (obj2.getImaginaryNumber() < 0) {
+		cout << "(" << obj2.getRealNumber() << " - " << -(obj2.getImaginaryNumber()) << "i) = ";
+	}
+	else {
+		cout << "(" << obj2.getRealNumber() << " + " << obj2.getImaginaryNumber() << "i) = ";
+	}
+	if (obj1.getImaginaryNumber() + obj2.getImaginaryNumber() < 0) {
+		cout << obj1.getRealNumber() + obj2.getRealNumber() << " - " << abs(obj1.getImaginaryNumber() + obj2.getImaginaryNumber()) << "i";
+	}
+	else {
+		cout << obj1.getRealNumber() + obj2.getRealNumber() << " + " << obj1.getImaginaryNumber() + obj2.getImaginaryNumber() << "i";
+	}
+}
+
+//precondition: going to pass in two objects
+//postcondition: going to then return the substraction of the first obj1 real number - obj2 real number then same thing for imaginary number
+void operator-(const Complex& obj1, const Complex& obj2) {
+	//cout << "\n\t\t\tSubstraction   : C2 - C1 -> (" << obj2.getRealNumber() << " + " << obj2.getImaginaryNumber() << "i) - (" << obj1.getRealNumber() << " + " << obj1.getImaginaryNumber() << "i) = ";
+	if (obj2.getRealNumber() == 0 && obj2.getImaginaryNumber() == 0) {
+		cout << "\n\t\t\tSubtraction    : C2 - C1 -> (" << obj2.getRealNumber() << ")";
+	}
+	else if (obj2.getRealNumber() == 0) {
+		cout << "\n\t\t\tSubtraction    : C2 - C1 -> (" << obj2.getImaginaryNumber() << "i)";
+	}
+	else if (obj2.getImaginaryNumber() == 0) {
+		cout << "\n\t\t\tSubtraction    : C2 - C1 -> (" << obj2.getRealNumber() << ")";
+	}
+	else if (obj2.getImaginaryNumber() < 0) {
+		cout << "\n\t\t\tSubtraction    : C2 - C1 -> (" << obj2.getRealNumber() << " - " << -(obj2.getImaginaryNumber()) << "i)";
+	}
+	else {
+		cout << "\n\t\t\tSubtraction    : C2 - C1 -> (" << obj2.getRealNumber() << " + " << obj2.getImaginaryNumber() << "i)";
+	}
+	cout << " - ";
+	if (obj1.getRealNumber() == 0 && obj1.getImaginaryNumber() == 0) {
+		cout << "(" << obj1.getRealNumber() << ") = ";
+	}
+	else if (obj1.getRealNumber() == 0) {
+		cout << "(" << obj1.getImaginaryNumber() << "i) = ";
+	}
+	else if (obj1.getImaginaryNumber() == 0) {
+		cout << "(" << obj1.getRealNumber() << ") = ";
+	}
+	else if (obj1.getImaginaryNumber() < 0) {
+		cout << "(" << obj1.getRealNumber() << " - " << -(obj1.getImaginaryNumber()) << "i) = ";
+	}
+	else {
+		cout << "(" << obj1.getRealNumber() << " + " << obj1.getImaginaryNumber() << "i) = ";
+	}
+	if (obj2.getImaginaryNumber() - obj1.getImaginaryNumber() < 0) {
+		cout << obj2.getRealNumber() - obj1.getRealNumber() << " - " << abs(obj2.getImaginaryNumber() - obj1.getImaginaryNumber()) << "i";
+	}
+	else {
+		cout << obj2.getRealNumber() - obj1.getRealNumber() << " + " << obj2.getImaginaryNumber() - obj1.getImaginaryNumber() << "i";
+	}
+}
+//precondition: going to pass in two objects
+//postcondition: going to then return the multiply of the first obj1 real number * obj2 real number then same thing for imaginary number
+void operator*(const Complex& obj1, const Complex& obj2){
+	double total = 0;
+	if (obj1.getRealNumber() == 0 && obj1.getImaginaryNumber() == 0) {
+		cout << "\n\t\t\tMultiplication : C1 * C2 -> (" << obj1.getRealNumber() << ")";
+	}
+	else if (obj1.getRealNumber() == 0){
+		cout << "\n\t\t\tMultiplication : C1 * C2 -> (" << obj1.getImaginaryNumber() << "i)";
+	}
+	else if (obj1.getImaginaryNumber() == 0){
+		cout << "\n\t\t\tMultiplication : C1 * C2 -> (" << obj1.getRealNumber() << ")";
+	}
+	else if (obj1.getImaginaryNumber() < 0){
+		cout << "\n\t\t\tMultiplication : C1 * C2 -> (" << obj1.getRealNumber() << " - " << -(obj1.getImaginaryNumber()) << "i)";
+	}
+	else{
+		cout << "\n\t\t\tMultiplication : C1 * C2 -> (" << obj1.getRealNumber() << " + " << obj1.getImaginaryNumber() << "i)";
+	}
+
+	cout << " * ";
+
+	if (obj2.getRealNumber() == 0 && obj2.getImaginaryNumber() == 0) {
+		cout << "(" << obj2.getRealNumber() << ") = ";
+	}
+	else if (obj2.getRealNumber() == 0){
+		cout << "(" << obj2.getImaginaryNumber() << "i) = ";
+	}
+	else if (obj2.getImaginaryNumber() == 0){
+		cout << "(" << obj2.getRealNumber() << ") = ";
+	}
+	else if (obj2.getImaginaryNumber() < 0){
+		cout << "(" << obj2.getRealNumber() << " - " << -(obj2.getImaginaryNumber()) << "i) = ";
+	}
+	else{
+		cout << "(" << obj2.getRealNumber() << " + " << obj2.getImaginaryNumber() << "i) = ";
+	}
+
+	total = obj1.getRealNumber() * obj2.getRealNumber();
+	double total2 = obj1.getRealNumber() * obj2.getImaginaryNumber();
+	double total3 = obj1.getImaginaryNumber() * obj2.getRealNumber();
+	double total4 = obj1.getImaginaryNumber() * obj2.getRealNumber();
+	double total5 = obj1.getImaginaryNumber() * obj2.getImaginaryNumber();
+	double total6 = total + (-total5);
+	double total7 = total2 + total3;
+	if (total7 < 0) {
+
+		cout << total6 << " - " << abs(total7) << "i";
+	}
+	else {
+		cout << total6 << " + " << total7 << "i";
+	}
+}
+
+//precondition: going to pass in two objects
+//postcondition: going to then return the multiply of the first obj1 real number * obj2 real number then same thing for imaginary number
+void operator/(const Complex& obj1, const Complex& obj2){
+	if (obj2.getRealNumber() == 0 && obj2.getImaginaryNumber() == 0) {
+		cout << "\n\t\t\tDivision       : C2 / C1 -> (" << obj2.getRealNumber() << ")";
+	}
+	else if (obj2.getRealNumber() == 0){
+		cout << "\n\t\t\tDivision       : C2 / C1 -> (" << obj2.getImaginaryNumber() << "i)";
+	}
+	else if (obj2.getImaginaryNumber() == 0){
+		cout << "\n\t\t\tDivision       : C2 / C1 -> (" << obj2.getRealNumber() << ")";
+	}
+	else if (obj2.getImaginaryNumber() < 0){
+		cout << "\n\t\t\tDivision       : C2 / C1 -> (" << obj2.getRealNumber() << " - " << -(obj2.getImaginaryNumber()) << "i)";
+	}
+	else{
+		cout << "\n\t\t\tDivision       : C2 / C1 -> (" << obj2.getRealNumber() << " + " << obj2.getImaginaryNumber() << "i)";
+	}
+	cout << " / ";
+
+	if (obj1.getRealNumber() == 0 && obj1.getImaginaryNumber() == 0){
+		cout << "(" << obj1.getRealNumber() << ") = ";
+	}
+	else if (obj1.getRealNumber() == 0){
+		cout << "(" << obj1.getImaginaryNumber() << "i) = ";
+	}
+	else if (obj1.getImaginaryNumber() == 0){
+		cout << "(" << obj1.getRealNumber() << ") = ";
+	}
+	else if (obj1.getImaginaryNumber() < 0){
+		cout << "(" << obj1.getRealNumber() << " - " << -(obj1.getImaginaryNumber()) << "i) = ";
+	}
+	else{
+		cout << "(" << obj1.getRealNumber() << " + " << obj1.getImaginaryNumber() << "i) = ";
+	}
+	double a;
+	double b;
+	double denominator;
+	denominator = pow(obj1.getRealNumber(), 2) + pow(obj1.getImaginaryNumber(), 2);
+
+	a = (obj1.getRealNumber() * obj2.getRealNumber()) + (-(-obj1.getImaginaryNumber() * obj2.getImaginaryNumber()));
+	b = (obj1.getRealNumber() * obj2.getImaginaryNumber()) + (-obj1.getImaginaryNumber() * obj2.getRealNumber());
+
+	a /= denominator;
+	b /= denominator;
+	if (b < 0) {
+		cout << a << " - " << abs(b) << "i";
+	}
+	else {
+		cout << a << " + " << b << "i";
+	}
+}
+

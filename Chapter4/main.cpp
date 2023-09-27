@@ -1,16 +1,18 @@
 //Christian Hernandez
-//Date: 9/28/2023
+//Date: 9/27/2023
 //subscription: CMPR131
 
 #include<iostream>
 #include"input (1).h"
 #include"Complex.h"
+#include"Rational.h"
 #include"Polynomial.h"
 using namespace std;
 
 //prototype
 int menuOption();
 void challenge1();
+void challenge2();
 void challenge3();
 
 int main()
@@ -19,7 +21,7 @@ int main()
 		switch (menuOption()) {
 		case 0: exit(1); break;
 		case 1: challenge1(); break;
-		//case 2: challenge2(); break;
+		case 2: challenge2(); break;
 		case 3: challenge3(); break;
 		default: cout << "\t\tERROR - Invalid option. Please re-enter."; break;
 		}
@@ -32,8 +34,7 @@ int main()
 
 //precondition: making a menu option
 //postcondition: it will return an int (the choice of the menu)
-int menuOption()
-{
+int menuOption(){
 	system("cls");
 	cout << "\n\tCMPR131 Chapter 4: Complex Numbers, Rational Numbers, Polynomials by Christian Hernandez(9/28/2023)";
 	cout << "\n\t" << string(100, char(205));
@@ -54,9 +55,16 @@ void challenge1() {
 	menu.displayInformation();
 }
 
+//precondition: going to call my Rational Class
+//postcondition: going to then displayInformation function so that will give me the information for rational
+void challenge2() {
+	Rational menu;
+	menu.RationalMenu();
+}
+
 //precondition: going to call my Polynomial class
 //postcondition: going to then call my displayInformation function that will have all the information and the menus as well
 void challenge3() {
 	Polynomial menu;
-	menu.displayInformationMenu();
+	menu.main();
 }
