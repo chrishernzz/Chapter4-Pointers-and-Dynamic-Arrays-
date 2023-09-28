@@ -54,14 +54,12 @@ void challenge1() {
 	Complex menu;
 	menu.displayInformation();
 }
-
 //precondition: going to call my Rational Class
 //postcondition: going to then displayInformation function so that will give me the information for rational
 void challenge2() {
 	Rational menu;
 	menu.RationalMenu();
 }
-
 //precondition: going to call my Polynomial class
 //postcondition: going to then call my displayInformation function that will have all the information and the menus as well
 void challenge3() {

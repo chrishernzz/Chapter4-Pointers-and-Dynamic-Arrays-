@@ -45,11 +45,15 @@ public:
 	//overloading operators for 2 objects and overloading operators  ==,!=,+,-,*,/
 	friend bool operator==(const Complex& obj1, const Complex& obj2);
 	friend bool operator!=(const Complex& obj1, const Complex& obj2);
-	friend void operator+(const Complex& obj1, const Complex& obj2);
-	friend void operator-(const Complex& obj1, const Complex& obj2);
-	friend void operator*(const Complex& obj1, const Complex& obj2);
-	friend void operator/(const Complex& obj1, const Complex& obj2);
 	
+	//overloading operators with 2 objects
+	friend Complex operator+(Complex& c1, Complex& c2);
+	friend Complex operator*(const Complex& c3, int value);
+	friend Complex operator/(const Complex& c3, int value);
+	friend Complex operator-(Complex& c1, Complex& c2);
+	friend Complex operator*(Complex& c1, Complex& c2);
+	friend Complex operator/(Complex& c1, Complex& c2);
+
 	//member function to get the evualte
 	void evaluteSteps(Complex& c1, Complex& c2);
 };
