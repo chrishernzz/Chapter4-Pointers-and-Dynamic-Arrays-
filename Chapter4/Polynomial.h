@@ -31,7 +31,7 @@ public:
     void printPolynomial(const Polynomial& poly);
     //member function that has the main menu
     void main();
-
+    //member functions that get me add, subtract, multiply, scalarMultiply
     Polynomial add(const Polynomial& p) const;
     Polynomial subtract(const Polynomial& p) const;
     Polynomial multiply(const Polynomial& p) const;

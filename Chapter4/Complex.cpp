@@ -888,10 +888,6 @@ void Complex::displayInformation() {
 					  break;
 				case 4: {
 					//overloading  operator
-					/*multC1 + multC2;
-					multC1 - multC2;
-					multC1 * multC2;
-					multC1 / multC2;*/
 					if (multC1.getRealNumber() == 0 && multC1.getImaginaryNumber() == 0) {
 						cout << "\n\t\t\tAddition       : C1 + C2 -> (" << multC1.getRealNumber() << ")";
 					}
@@ -1095,7 +1091,7 @@ void Complex::displayInformation() {
 	}while (true);
 }
 //preconditon: going to pass in two objects 
-//postcondition: 
+//postcondition: going to then call my overloading operators, do 5 steps, if/else statements to check if realNumber or imaginaryNumber are postive or negative
 void Complex::evaluteSteps(Complex& c1, Complex& c2){
 	Complex c3(1.07109, 0.120832);
 	Complex c4;
@@ -1370,26 +1366,27 @@ bool operator!=(const Complex& obj1, const Complex& obj2){
 	return (obj1.getRealNumber() != obj2.getRealNumber()) && (obj1.getImaginaryNumber() != obj2.getImaginaryNumber());
 }
 //precondition: going to have two objects
-Complex operator+(Complex& c1, Complex& c2){
+//postcondition: going to then add the obj1 realNumber() and obj2 realNumber() and same thing for imaginaryNumber 
+Complex operator+(Complex& obj1, Complex& obj2){
 	double sumA;
 	double sumB;
-
-	sumA = c1.getRealNumber() + c2.getRealNumber();
-	sumB = c1.getImaginaryNumber() + c2.getImaginaryNumber();
+	sumA = obj1.getRealNumber() + obj2.getRealNumber();
+	sumB = obj1.getImaginaryNumber() + obj2.getImaginaryNumber();
 
 	return Complex(sumA, sumB);
 }
-
+//precondition: going to have one objects and one varaible (int)
+//postcondition: going to then multiply the c3 realNumber() times value and  also c3 imaginaryNumber() times value
 Complex operator*(const Complex& c3, int value){
 	double productA;
 	double productB;
-
 	productA = c3.getRealNumber() * value;
 	productB = c3.getImaginaryNumber() * value;
 
 	return Complex(productA, productB);
 }
-
+//precondition: going to have one objects and one varaible (int)
+//postcondition: going to then divide the c3 realNumber() divide value and  also c3 imaginaryNumber() divide value
 Complex operator/(const Complex& c3, int value){
 	double a;
 	double b;
@@ -1399,36 +1396,36 @@ Complex operator/(const Complex& c3, int value){
 
 	return Complex(a, b);
 }
-
-Complex operator-(Complex& c2, Complex& c1){
+//precondition: going to have two objects
+//postcondition: going to then subtract the obj2 realNumber() and obj1 realNumber() and same thing for imaginaryNumber 
+Complex operator-(Complex& obj2, Complex& obj1){
 	double sumA;
 	double sumB;
-
-	sumA = c2.getRealNumber() - c1.getRealNumber();
-	sumB = c2.getImaginaryNumber() - c1.getImaginaryNumber();
+	sumA = obj2.getRealNumber() - obj1.getRealNumber();
+	sumB = obj2.getImaginaryNumber() - obj1.getImaginaryNumber();
 
 	return Complex(sumA, sumB);
 }
-
-Complex operator*(Complex& c1, Complex& c2){
+//precondition: going to have two objects
+//postcondition: going to then add the obj1 realNumber() times obj2 realNumber() plues and obj1 imaginaryNumber() times obj2 imaginaryNumber() 
+Complex operator*(Complex& obj1, Complex& obj2){
 	double productA;
 	double productB;
-
-	productA = (c1.getRealNumber() * c2.getRealNumber()) + (-(c1.getImaginaryNumber() * c2.getImaginaryNumber()));
-	productB = (c1.getRealNumber() * c2.getImaginaryNumber()) + (c1.getImaginaryNumber() * c2.getRealNumber());
+	productA = (obj1.getRealNumber() * obj2.getRealNumber()) + (-(obj1.getImaginaryNumber() * obj2.getImaginaryNumber()));
+	productB = (obj1.getRealNumber() * obj2.getImaginaryNumber()) + (obj1.getImaginaryNumber() * obj2.getRealNumber());
 
 	return Complex(productA, productB);
 }
-
-Complex operator/(Complex& c2, Complex& c1){
+//precondition: going to have two objects
+//postcondition: going to thent take the power of obj1 realNumber() then add it with the power of obj1 imaginaryNumber()
+Complex operator/(Complex& obj2, Complex& obj1){
 	double a;
 	double b;
 	double denominator;
+	denominator = pow(obj1.getRealNumber(), 2) + pow(obj1.getImaginaryNumber(), 2);
 
-	denominator = pow(c1.getRealNumber(), 2) + pow(c1.getImaginaryNumber(), 2);
-
-	a = (c1.getRealNumber() * c2.getRealNumber()) + (-(-c1.getImaginaryNumber() * c2.getImaginaryNumber()));
-	b = (c1.getRealNumber() * c2.getImaginaryNumber()) + (-c1.getImaginaryNumber() * c2.getRealNumber());
+	a = (obj1.getRealNumber() * obj2.getRealNumber()) + (-(-obj1.getImaginaryNumber() * obj2.getImaginaryNumber()));
+	b = (obj1.getRealNumber() * obj2.getImaginaryNumber()) + (-obj1.getImaginaryNumber() * obj2.getRealNumber());
 
 	a /= denominator;
 	b /= denominator;

@@ -2,6 +2,11 @@
 //Date: 9/27/2023
 //subscription: CMPR131
 
+//Credit:
+//Part 1 (Complex Numbers): Joe Bryant & Christian Hernandez & Erik Santana
+//Part 2 (Rational Numbers): Thanh Tran & John Kim
+//Part 3 (Polynomial Numbers): Otoniel Torres Bernal & Saul Merino
+
 #include<iostream>
 #include"input (1).h"
 #include"Complex.h"

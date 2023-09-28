@@ -6,7 +6,6 @@
 //postcondition: going to set the variables to 0.0 since they are doubles (initialize them), allocating new memory
 Polynomial::Polynomial() {}
 
-
 //precondition: going to make a function that gets me the vector data
 //postcondition: going to then resize the number terms, set the termsentered true so it can tell that we enter the inputs
 void Polynomial::enterTerms() {
@@ -49,9 +48,14 @@ Polynomial Polynomial::derivative() {
 //postcondition: going to then returnn the integral, have to push back the coefficient then divide the index + 1
 Polynomial Polynomial::integral() {
     Polynomial integral;
+    //add a constant term with coefficient 0
+    integral.coefficients.push_back('c');
     for (size_t i = 0; i < coefficients.size(); ++i) {
         integral.coefficients.push_back(coefficients[i] / (i + 1));
     }
+
+
+
     return integral;
 }
 //precondition: going to get the main menu
@@ -199,7 +203,6 @@ void Polynomial::main() {
                 }
                       break;
                 case 0: {
-
                     termsEntered = false;
                     coefficientsSpecified = false;
                     cout << endl;
@@ -252,7 +255,6 @@ void Polynomial::main() {
         }
                 break;
         case '0': {
-            system("cls");
             return;
         }
         }
