@@ -29,6 +29,7 @@ public:
     Polynomial derivative();
     Polynomial integral();
     void printPolynomial(const Polynomial& poly);
+
     //member function that has the main menu
     void main();
     //member functions that get me add, subtract, multiply, scalarMultiply

@@ -49,13 +49,10 @@ Polynomial Polynomial::derivative() {
 Polynomial Polynomial::integral() {
     Polynomial integral;
     //add a constant term with coefficient 0
-    integral.coefficients.push_back('c');
+    integral.coefficients.push_back(0);
     for (size_t i = 0; i < coefficients.size(); ++i) {
         integral.coefficients.push_back(coefficients[i] / (i + 1));
     }
-
-
-
     return integral;
 }
 //precondition: going to get the main menu
@@ -263,9 +260,14 @@ void Polynomial::main() {
 //precondition: going to pass in the class
 //postcondition: going to then print the polynomials coefficents information
 void Polynomial::printPolynomial(const Polynomial& poly) {
+    bool first_term_printed = false;
     for (int i = poly.coefficients.size() - 1; i >= 0; --i) {
-        //handle the first term separately to avoid the leading + sign
-        if (i == poly.coefficients.size() - 1) {
+        // Skip terms with a coefficient of 0
+        if (poly.coefficients[i] == 0) continue;
+
+        // Handle the first term separately to avoid the leading + sign
+        if (!first_term_printed) {
+            first_term_printed = true;
             if (poly.coefficients[i] < 0) {
                 cout << "- ";
             }
