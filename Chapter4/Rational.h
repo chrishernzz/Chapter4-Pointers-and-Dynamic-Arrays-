@@ -38,7 +38,7 @@ public:
 	void setDenominator(int);
 	void negate(Rational&);
 
-	//overloaidng operators for one object
+	//overloading operators for one object
 	const Rational operator =(const Rational&);
 	friend Rational operator +(const Rational& obj, const int number);
 	friend Rational operator +(const int number, const Rational& obj);
@@ -63,7 +63,7 @@ public:
 	//cout overloading object
 	friend ostream& operator << (ostream& out, Rational obj);
 
-	//memberfunction to display
+	//member function to display
 	void RationalOptionB();
 	void RationalOptionA();
 	void RationalMenu();

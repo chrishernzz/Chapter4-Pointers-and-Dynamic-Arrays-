@@ -128,6 +128,7 @@ void Rational::RationalOptionA() {
 		case 2:
 
 			denominator = inputInteger("\n\t\tEnter an integer for the denominator: ");
+			
 			rational1.setDenominator(denominator);
 
 			break;
